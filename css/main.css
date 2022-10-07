@@ -5,6 +5,14 @@
     --white-color: #f3f3f3;
 }
 
+.odd {
+    font-weight: 400;
+}
+
+.even {
+    font-weight: bold;
+}
+
 body {
     color: var(--dark-color);
 }
@@ -13,6 +21,13 @@ nav {
     background-color: var(--dark-color);
 }
 
+.logo-font{
+    font-family: 'Racing Sans One', cursive;
+    font-weight: 600;
+    font-style: italic;
+}
+
+nav
 main>.container {
     padding: 60px 15px 0;
     margin-bottom: 5rem;
@@ -57,7 +72,7 @@ footer {
 }
 
 footer.footer-text {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 footer .social>a {
@@ -80,7 +95,17 @@ footer .social>a:hover{
     width: 100%;
 }
 
-@media only screen and (max-width: 393px) {
+@media only screen and (max-width: 1392px) {
+    .footer-text {
+        font-size: 14px;
+    }
+
+    .iconsize >div i {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 1228px) {
     .footer-text {
         font-size: 10px;
     }
