@@ -29,7 +29,7 @@
     <!-- ==== Nav Section ==== -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand logo-font" href="#"><img src="/img/Sunbeam-sun-logo-4.svg" class="d-inline-block align-text-top" height="24" width="100">HUNDASHER</a>
+            <a class="navbar-brand logo-font" href="#"><img src="/img/BralinLarence-Brand-Header-Logo-1.svg" class="d-inline-block align-text-top" height="24" width="100">HUNDASHER</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/BralinLarence/Hundasher">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="#">About</a>
@@ -57,22 +57,97 @@
     </nav>
     <!-- ==== Main Section ==== -->
     <main class="flex-shrink-0">
-        <div class="container py-4 px-5 mt-5">
+        <div class="container py-4 px-4 mt-5">
             <h2 class="border-1 border-bottom border-dark">The Code for HUNDASHER</h2>
             <div class="row row-cols-1 row-cols-md-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                            // Call Hello World
-                            function HelloWorld() {
-                            alert("Hello World");
+                            // Get the values from the Page
+                            // Starts or controller function
+                            function getValues() {
+                                let startValue = parseInt(document.getElementById("startValue").value);
+                                let endValue = parseInt(document.getElementById("endValue").value);
+                                
+                                // We need to validate our input
+                                if(Number.isInteger(startValue) && Number.isInteger(endValue))
+                                {
+                                //Call generate numbers array
+                                let numbers = generateNumbers(startValue, endValue);
+                                //Call display numbers
+                                displayNumbers(numbers);
+                                }
+                                else
+                                {
+                                alert("You must enter integers");
+                                }
+                            }
+                            
+                            // Generate numbers from the start value to the end value
+                            // Logic function(s)/Model
+                            function generateNumbers(_sValue, _eValue){
+                            
+                                let numbers = [];
+                                //Get all numbers from start to end
+                                for(let index = _sValue; index <= _eValue; index++) 
+                                { 
+                                    numbers.push(index); 
+                                } return numbers; 
+                            } 
+                            
+                                // Display the numbers and mark the even numbers bold 
+                                // Display or VIEW functions 
+                            function displayNumbers(_numbers){ 
+                                let templateRows="" ; // variable holds our html 
+
+                                for(let index=0; index < _numbers.length; index++) 
+                                { 
+                                    let className="even"; 
+                                    let number = _numbers[index]; 
+
+                                    if(number % 2==0) 
+                                    { 
+                                        className = "even"; 
+                                    } else { 
+                                        className="odd" ; 
+                                    } 
+
+                                    // This does render correctly with Prisim. See the source code.
+                                    templateRows +=`<tr> <td class=${className}>${number}</td> </tr>`;
+                                }
+                                document.getElementById("results").innerHTML = templateRows;
                             }
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that diplays an alert with a message of Hello World</p>
+                    <h5>Introduction</h5>
+                    <p>The Code is structured in three separate functions. Each function has its own responsibilities which makes 
+                        it easier to maintain and update the code base through it's life cycle. One function acts as our controller, the 
+                        other our model or logic, and the last one functions as our view or display code. 
+                    </p>
+                    <h5>The getValues() function</h5>
+                    <p>
+                        The getValues function grabs our starting and ending values from the input we receive from the user.
+                        The input is then parsed into an integer and checked that the input is a number. Next, it calls the
+                        generate numbers function and returns an array.  
+                        The array called numbers is set as an argument in the displayNumbers function whichj shows the outcome
+                        in the results section. 
+                    </p>
+
+                    <h5>The generateNumbers() function</h5>
+                    <p>
+                        The function gets the starting and ending values and uses them to set the initialization, conditional,
+                        and the iteration parts of our for loop. In the for loop the numbers are generated and pushed to the 
+                        array and the function returns the array called numbers.
+                    </p>
+                    <h5>The displayNumbers() function</h5>
+                    <p>
+                        Taking the array as an argument the function iterates over the array and any even number is displayed
+                        in <strong>bold</strong>. To find the even numbers, each value at the index position is divided by the modulus 
+                        of two as a condition of the if statement. The varaiable called className is assigned to the html string that is 
+                        set to the templateRows variable. The templateRows variable is assigned to the html DOM 
+                        element document.getElementById("results").innerHTML.                    
+                    </p>
                 </div>
 
             </div>
@@ -83,16 +158,14 @@
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col order-last order-lg-first d-flex align-items-center justify-content-center text-light ">
-                    <div class="footer-text"><span class="text-mute">&copy;2022</span> Sunbeam Technologies |
-                        contactus@sunbeamtech.com</div>
+                    <div class="footer-text"><span class="text-mute">&copy;2022</span> Bralin Larence </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-sm-center justify-content-lg-center mb-2">
-                    <img src="/img/Sunbeam Technologies-Alt-Logo-4.svg" alt="SunBeam Technologies Logo"
-                        class="img-fluid"></img>
+                    <img src="/img/BralinLarence-Logo-1.svg" alt="Bralin Larence Logo" class="img-fluid"></img>
                 </div>
                 <div class="col  pe-5 d-flex align-items-center justify-content-center justify-content-lg-end">
                     <div class="row">
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://github.com/BralinLarence/Hundasher" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
                         <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
                             <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
                             <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></div> -->

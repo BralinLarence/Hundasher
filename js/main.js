@@ -46,7 +46,6 @@ function displayNumbers(_numbers){
         if(number % 2 == 0)
         {
             className = "even";
-            
         }
         else
         {
@@ -55,7 +54,6 @@ function displayNumbers(_numbers){
 
         templateRows += `<tr><td class=${className}>${number}</td></tr>`;
     }
-
 
     document.getElementById("results").innerHTML = templateRows;
 }
