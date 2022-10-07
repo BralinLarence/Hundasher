@@ -112,7 +112,7 @@
                                     } 
 
                                     // This does render correctly with Prisim. See the source code.
-                                    templateRows +=`<tr> <td class=${className}>${number}</td> </tr>`;
+                                    templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>;
                                 }
                                 document.getElementById("results").innerHTML = templateRows;
                             }
